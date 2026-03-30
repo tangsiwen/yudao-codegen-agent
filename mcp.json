@@ -1,0 +1,113 @@
+{
+  "mcpServers": {
+    "yudao-mcp-server": {
+      "command": "python",
+      "args": [
+        "d:\\dev\\trae\\yudao-codegen-agent\\yudao-mcp-server.py"
+      ],
+      "env": {},
+      "description": "芋道源码服务端接口服务",
+      "tools": [
+        {
+          "name": "codegen_create_list",
+          "description": "导入数据表到代码生成器",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "tableName": {
+                "type": "string",
+                "description": "要导入的数据表名称"
+              }
+            },
+            "required": [
+              "tableName"
+            ]
+          }
+        },
+        {
+          "name": "codegen_download",
+          "description": "下载生成的代码",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "tableId": {
+                "type": "integer",
+                "description": "表编号"
+              },
+              "className": {
+                "type": "string",
+                "description": "类名"
+              },
+              "downloadPath": {
+                "type": "string",
+                "description": "下载路径，默认为当前目录"
+              }
+            },
+            "required": [
+              "tableId",
+              "className"
+            ]
+          }
+        }
+      ]
+    },
+    "file-copy-mcp-server": {
+      "command": "python",
+      "args": [
+        "d:\\dev\\trae\\yudao-codegen-agent\\file_copy_mcp_server.py"
+      ],
+      "env": {},
+      "description": "文件复制服务",
+      "tools": [
+        {
+          "name": "copy_directory",
+          "description": "复制目录及其所有内容",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "sourceDir": {
+                "type": "string",
+                "description": "源目录绝对路径"
+              },
+              "targetDir": {
+                "type": "string",
+                "description": "目标目录绝对路径"
+              },
+              "overwrite": {
+                "type": "boolean",
+                "description": "是否覆盖已存在的文件",
+                "default": false
+              }
+            },
+            "required": [
+              "sourceDir",
+              "targetDir"
+            ]
+          }
+        }
+      ]
+    },
+    "MySQL Server": {
+      "command": "mysql_mcp_server",
+      "args": [],
+      "env": {
+        "MYSQL_DATABASE": "your_database_name_here",
+        "MYSQL_HOST": "localhost",
+        "MYSQL_PASSWORD": "your_mysql_password",
+        "MYSQL_PORT": "3306",
+        "MYSQL_USER": "root"
+      }
+    },
+    "Filesystem": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-filesystem",
+        "D:/dev/mathbox/mathbox-server",
+        "D:/dev/mathbox/mathbox-ui-admin-vue3",
+        "D:/dev/sliver"
+      ],
+      "env": {}
+    }
+  }
+}

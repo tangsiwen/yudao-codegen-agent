@@ -1,0 +1,15 @@
+建表要求：
+建一个家庭成员表，字段如下：
+与本人关系（关联数据字典，生成一些常用的关系，比如父子，父女，母子，兄弟等等）
+姓名
+性别（关联数据字典system_user_sex）
+电话
+住址
+职业
+工作单位
+
+模块名：silver
+父菜单名称：社区银龄人才
+生成代码存放目录：D:\dev\sliver
+服务端项目目录：D:\dev\mathbox\mathbox-server
+前端项目目录：D:\dev\mathbox\mathbox-ui-admin-vue3
