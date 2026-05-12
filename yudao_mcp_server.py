@@ -12,7 +12,8 @@ PASSWORD = 'admin123'
 TENANT_ID = '1'
 
 # Token存储文件
-TOKEN_FILE = 'yudao_token.json'
+# TOKEN_FILE = 'yudao_token.json'
+TOKEN_FILE = os.path.join(os.path.dirname(__file__), 'yudao_token.json')
 
 
 def load_token():
@@ -379,6 +380,8 @@ def handle_request(request):
 
 def run_mcp_server():
     """运行 MCP 服务器"""
+    # 添加启动日志
+    print("MCP Server starting...\n")
     while True:
         try:
             line = input()
